@@ -1,8 +1,10 @@
 import React from 'react';
+import { Fade } from "react-awesome-reveal";
 
 const SLGraph = () => {
     return ( 
         <div className='col-lg-7 mt-3 col-md-12'>
+            <Fade direction='left' delay={800} triggerOnce>
             <div className='card'>
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
@@ -20,6 +22,7 @@ const SLGraph = () => {
                     amet..", comes from a line in section 1.10.32. and make up the bulk of the card's content.</p>
                 </div>
             </div>
+            </Fade>
         </div>
      );
 }
