@@ -19,10 +19,10 @@ class App extends Component {
                 </Fade>   
                 
                 <div className='row p-3'>
-                    <InfoCard title='Total Cases' value='18,450' textColorClass='text-primary'/>
-                    <InfoCard title='Total Deaths' value='53' textColorClass='text-danger'/>
-                    <InfoCard title='Total Recovered' value='10,678' textColorClass='text-success'/>
-                    <InfoCard title='Total Active' value='5678' textColorClass='text-warning'/>
+                    <InfoCard title='Total Cases' value='18,450' textColorClass='text-primary' icon='Search'/>
+                    <InfoCard title='Total Deaths' value='53' textColorClass='text-danger' icon='Dead'/>
+                    <InfoCard title='Total Recovered' value='10,678' textColorClass='text-success' icon='Recovered'/>
+                    <InfoCard title='Total Active' value='5678' textColorClass='text-warning' icon='Active'/>
                 </div>
                 
 

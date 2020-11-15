@@ -7,8 +7,8 @@ const TotalActiveGraph = (props) => {
         <div className='col-lg-7 mt-3 col-md-12'>
             <Fade direction={props.fadeInDirection} delay={500} triggerOnce>
             <div className='card'>
-                <div class="card-body">
-                    <h5 class="card-title text-center">Total vs Active Cases (SL)</h5>
+                <div className="card-body">
+                    <h5 className="card-title text-center">Total vs Active Cases (SL)</h5>
                     <Chart
                         width='100%'
                         height={'398px'}
