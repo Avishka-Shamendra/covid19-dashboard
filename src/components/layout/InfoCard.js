@@ -1,8 +1,10 @@
 import React from 'react';
+import { Zoom } from 'react-awesome-reveal';
 
-const  SLDataCard= (props) => {
+const  InfoCard= (props) => {
     return ( 
         <div className='col-lg-3 col-md-12 '>
+            <Zoom triggerOnce delay={250}>
             <div className='card p-3 rounded-lg m-1 rounded-lg shadow'>
                 <div className='container border border-secondary rounded-lg'>
                 <div className="card-body">
@@ -11,8 +13,9 @@ const  SLDataCard= (props) => {
                 </div>
                 </div>
             </div>
+            </Zoom>
         </div>
      );
 }
  
-export default SLDataCard;
+export default InfoCard;

@@ -1,7 +1,7 @@
 import React from 'react';
 
-const DailyFigureContainer = (props) => {
-    return ( 
+const FigureContainer = (props) => {
+    return (
         <div className='row'>
             <div className='container p-3 mt-2 mb-2 border border-dark rounded-lg'>
                 <h5 className="card-title text-center">{props.title}</h5>
@@ -11,4 +11,4 @@ const DailyFigureContainer = (props) => {
      );
 }
  
-export default DailyFigureContainer;
+export default FigureContainer;
