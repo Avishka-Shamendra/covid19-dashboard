@@ -7,22 +7,24 @@ const FigureContainer = (props) => {
     let icon = null;
 
     if (props.icon==='heart'){
-        icon = <FaHeart color='white' size="25px"/>
+        icon = <FaHeart color={props.iconColor} size="25px"/>
     }else if (props.icon==='virus'){
-        icon = <RiVirusFill color='white' size='25px'/>
+        icon = <RiVirusFill color={props.iconColor} size='25px'/>
     }else if (props.icon==='skull'){
-        icon = <GiDeathSkull color='white' size='25px'/>
+        icon = <GiDeathSkull color={props.iconColor} size='25px'/>
     }else if (props.icon==='alarm'){
-        icon = <RiAlarmWarningFill color='white' size='25px'/>
+        icon = <RiAlarmWarningFill color={props.iconColor} size='25px'/>
     }
     return (
             <div className='container p-3 mt-2 mb-2 border border-dark rounded-lg'>
-                <div className='container p-0 d-flex align-items-center justify-content-center border mb-2' style={{
+                <div className={`container p-0 d-flex align-items-center justify-content-center mb-2 glow-${props.iconGlow}`} style={
+                    {
                     width:'50px',
                     height:'50px',
+                    border:`1px solid ${props.iconColor}`,
                     borderRadius:'50%',
-                    backgroundColor:`${props.iconColor}`
-                }}>
+                    }
+                }>
                 {icon}
                 </div>             
                 <h5 className="card-title text-center">{props.title}</h5>

@@ -26,7 +26,6 @@ class App extends Component {
                 </div>
                 
 
-
                 <div className='row p-3 justify-content-between'>
                     <TotalActiveGraph fadeInDirection='left' />
                     <DailyFiguresCard />
@@ -38,7 +37,7 @@ class App extends Component {
                     <BarChart title='Daily Recoveries (SL)' xAxis='Date' yAxis='No. of Recoveries' color='#5cb85c' />
                 </div>
 
-                <div className='row p-3 justify-content-between'>
+                <div className='row p-3 justify-content-between d-flex'>
                     <GlobalFiguresCard/>
                     <TotalActiveGraph fadeInDirection='right'/>
                 </div>

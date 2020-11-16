@@ -1,23 +1,23 @@
 import React from 'react';
-import { Fade } from "react-awesome-reveal";
+import { Zoom } from "react-awesome-reveal";
 import Chart from 'react-google-charts';
 
 const TotalActiveGraph = (props) => {
     return ( 
-        <div className='col-lg-7 mt-3 col-md-12'>
-            <Fade direction={props.fadeInDirection} delay={500} triggerOnce>
-            <div className='card'>
-                <div className="card-body">
-                    <h5 className="card-title text-center">Total vs Active Cases (SL)</h5>
-                    <Chart
+        <div className='col-lg-7 mt-3 col-md-12 '>
+            <Zoom delay={500} triggerOnce> 
+                <div className='card shadow'>
+                    <div className="card-body">
+                        <h5 className="card-title text-center">Total vs Active Cases (SL)</h5>
+                        <Chart
                         width='100%'
-                        height={'398px'}
+                        height={'539px'}
                         chartType="LineChart"
                         loader={<div className='center text-muted text-center mt-5'>Loading....</div>}
                         data={[
                             ['Date','Total Cases', 'Active Cases'],
-                            ['Nov 11', 0, 0],
-                            [1, 10, 5],
+                            ['10/11/20', 0, 0],
+                            ['11/11/20', 10, 5],
                             [2, 23, 15],
                             [3, 17, 9],
                             [4, 18, 10],
@@ -46,7 +46,7 @@ const TotalActiveGraph = (props) => {
                         />
                     </div>
                 </div>
-            </Fade>
+            </Zoom>
         </div>
      );
 }

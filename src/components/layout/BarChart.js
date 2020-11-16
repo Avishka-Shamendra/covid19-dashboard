@@ -9,7 +9,7 @@ const BarChart = (props) => {
                     <div className='card p-3 shadow rounded-lg'>
                         <div className='card-content'>
                             <div className='card-title text-center'>{props.title}</div>
-                            <Chart className='card-content'
+                            <Chart className='card-content pl-3 pr-3'
                             width= "100%"
                             height={'300px'}
                             chartType="Bar"
