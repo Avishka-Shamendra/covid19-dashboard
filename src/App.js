@@ -6,10 +6,17 @@ import { Fade } from "react-awesome-reveal";
 import TitleCard from './components/layout/TitleCard';
 import GlobalFiguresCard from './components/layout/GlobalFiguresCard';
 import BarChart from './components/layout/BarChart';
-
+import { connect } from 'react-redux';
+import fetchDataAction from './actions/fetchData';
+import * as constants from './constants';
 class App extends Component {
-    state = {  }
+    componentDidMount(){
+        this.props.fetch();
+    }
     render() { 
+        if(this.props.loading){
+            return (<div>Loading..</div>)
+        }
         return ( 
             <div className="app container-fluid">
 
@@ -19,7 +26,7 @@ class App extends Component {
                 </Fade>   
                 
                 <div className='row p-3'>
-                    <InfoCard title='Total Cases' value='18,450' textColorClass='text-primary' icon='Search'/>
+                    <InfoCard title='Total Cases' value={this.props.data.local_total_cases}textColorClass='text-primary' icon='Search'/>
                     <InfoCard title='Total Deaths' value='53' textColorClass='text-danger' icon='Dead'/>
                     <InfoCard title='Total Recovered' value='10,678' textColorClass='text-success' icon='Recovered'/>
                     <InfoCard title='Total Active' value='5678' textColorClass='text-warning' icon='Active'/>
@@ -47,6 +54,21 @@ class App extends Component {
 
          );
     }
+    
+}
+const mapStateToProps =(state)=>{
+    console.log(state.fetch.data)
+    return{
+        error:state.fetch.fetchError,
+        data:state.fetch.data,
+        loading:state.fetch.isFetching,
+    }
+}
+
+const mapDispatchToProps = (dispatch)=>{
+    return{
+        fetch:()=>{dispatch(fetchDataAction())}
+    }
 }
  
-export default App;
+export default connect(mapStateToProps,mapDispatchToProps)(App);
