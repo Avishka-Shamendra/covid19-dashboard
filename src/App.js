@@ -26,27 +26,27 @@ class App extends Component {
                 </Fade>   
                 
                 <div className='row p-3'>
-                    <InfoCard title='Total Cases' value={this.props.data.local_total_cases}textColorClass='text-primary' icon='Search'/>
-                    <InfoCard title='Total Deaths' value='53' textColorClass='text-danger' icon='Dead'/>
-                    <InfoCard title='Total Recovered' value='10,678' textColorClass='text-success' icon='Recovered'/>
-                    <InfoCard title='Total Active' value='5678' textColorClass='text-warning' icon='Active'/>
+                    <InfoCard title='Total Cases' value={this.props.data[constants.LOCAL_TOTAL_CASES].toLocaleString()}textColorClass='text-primary' icon='Search'/>
+                    <InfoCard title='Total Deaths' value={this.props.data[constants.LOCAL_TOTAL_DEATHS].toLocaleString()} textColorClass='text-danger' icon='Dead'/>
+                    <InfoCard title='Total Recovered' value={this.props.data[constants.LOCAL_TOTAL_RECOVERED].toLocaleString()} textColorClass='text-success' icon='Recovered'/>
+                    <InfoCard title='Total Active' value={this.props.data[constants.LOCAL_TOTAL_ACTIVE_CASES].toLocaleString()} textColorClass='text-warning' icon='Active'/>
                 </div>
                 
 
                 <div className='row p-3 justify-content-between'>
-                    <TotalActiveGraph fadeInDirection='left' />
-                    <DailyFiguresCard />
+                    <TotalActiveGraph fadeInDirection='left' data={this.props.local_history_summary}/>
+                    <DailyFiguresCard new_cases={this.props.data[constants.LOCAL_NEW_CASES]}  new_deaths={this.props.data[constants.LOCAL_NEW_DEATHS]} new_recovered='0' last_update={this.props.data[constants.LAST_UPDATE_TIME]}/>
                 </div>
 
                 <div className='row p-3 justify-content-between'>
-                    <BarChart title='Daliy Cases (SL)' xAxis='Date' yAxis='No. of Cases' color='#0275d8' />
-                    <BarChart title='Daily Deaths (SL)' xAxis='Date' yAxis='No. of Deaths' color='#d9534f' />
-                    <BarChart title='Daily Recoveries (SL)' xAxis='Date' yAxis='No. of Recoveries' color='#5cb85c' />
+                    <BarChart title='Daliy Cases (SL)' xAxis='Date' yAxis='No. of Cases' color='#0275d8' data={this.props.new_cases_history}/>
+                    <BarChart title='Daily Deaths (SL)' xAxis='Date' yAxis='No. of Deaths' color='#d9534f' data={this.props.new_deaths_history}/>
+                    <BarChart title='Daily Recoveries (SL)' xAxis='Date' yAxis='No. of Recoveries' color='#5cb85c' data={this.props.new_recoveries_history}/>
                 </div>
 
                 <div className='row p-3 justify-content-between d-flex'>
-                    <GlobalFiguresCard/>
-                    <TotalActiveGraph fadeInDirection='right'/>
+                    <GlobalFiguresCard total_cases={this.props.data[constants.GLOBAL_TOTAL_CASES]}  total_deaths={this.props.data[constants.GLOBAL_DEATHS]} total_recovered={this.props.data[constants.GLOBAL_RECOVERED]} last_update={this.props.data[constants.LAST_UPDATE_TIME]}/>
+                    <TotalActiveGraph fadeInDirection='right' data={this.props.local_history_summary}/>
                 </div>
 
                 
@@ -57,17 +57,22 @@ class App extends Component {
     
 }
 const mapStateToProps =(state)=>{
-    console.log(state.fetch.data)
     return{
         error:state.fetch.fetchError,
         data:state.fetch.data,
         loading:state.fetch.isFetching,
+        new_cases_history:state.fetch.new_cases_history,
+        new_deaths_history:state.fetch.new_deaths_history,
+        new_recoveries_history:state.fetch.new_recoveries_history,
+        local_history_summary:state.fetch.local_history_summary,
     }
 }
 
 const mapDispatchToProps = (dispatch)=>{
     return{
-        fetch:()=>{dispatch(fetchDataAction())}
+        fetch:()=>{
+            dispatch(fetchDataAction())
+        }
     }
 }
  

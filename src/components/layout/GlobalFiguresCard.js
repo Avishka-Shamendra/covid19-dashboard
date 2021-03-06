@@ -8,13 +8,13 @@ const GlobalFiguresCard = (props) => {
             <Zoom  triggerOnce delay={100}>
             <div className='card shadow rounded-lg mt-3'>
                     <div className="card-body">
-                    <h5 className="card-title text-center">Golobal Figures</h5>
+                    <h5 className="card-title text-center">Global Figures</h5>
                         <div className='col'>
-                            <FigureContainer title='Total Cases' value='45,045,79' textColorClass='text-primary' iconColor='#0275d8' icon='virus' iconGlow='blue'/>
-                            <FigureContainer title='Total Deaths' value='5,679,789' textColorClass='text-danger' iconColor='#d9534f' icon='skull' iconGlow='red'/>
-                            <FigureContainer title='Active Cases' value='675,687' textColorClass='text-warning' iconColor='#f0ad4e' icon='alarm'iconGlow='yellow'/>
+                            <FigureContainer title='Total Cases' value={props.total_cases.toLocaleString()} textColorClass='text-primary' iconColor='#0275d8' icon='virus' iconGlow='blue'/>
+                            <FigureContainer title='Total Deaths' value={props.total_deaths.toLocaleString()}  textColorClass='text-danger' iconColor='#d9534f' icon='skull' iconGlow='red'/>
+                            <FigureContainer title='Active Cases' value={(props.total_cases-props.total_recovered).toLocaleString()}  textColorClass='text-warning' iconColor='#f0ad4e' icon='alarm'iconGlow='yellow'/>
                         </div>
-                        <p className="card-text text-muted text-center mt-2">Last Update</p>
+                        <p className="card-text text-muted text-center mt-2">Last Update at {props.last_update} </p>
                     </div>
                 </div>
                 </Zoom>
