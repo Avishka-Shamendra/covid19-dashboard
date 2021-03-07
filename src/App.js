@@ -9,13 +9,15 @@ import BarChart from './components/layout/BarChart';
 import { connect } from 'react-redux';
 import fetchDataAction from './actions/fetchData';
 import * as constants from './constants';
+import Loader from 'react-loader-spinner';
+import WorldGraph from './components/layout/worldGraph';
 class App extends Component {
     componentDidMount(){
         this.props.fetch();
     }
     render() { 
         if(this.props.loading){
-            return (<div>Loading..</div>)
+            return (<div className="d-flex justify-content-center align-items-center vh-100"><Loader type="ThreeDots" color="#000000" height={50} width={50}/></div>)
         }
         return ( 
             <div className="app container-fluid">
@@ -34,7 +36,7 @@ class App extends Component {
                 
 
                 <div className='row p-3 justify-content-between'>
-                    <TotalActiveGraph fadeInDirection='left' data={this.props.local_history_summary}/>
+                    <TotalActiveGraph fadeInDirection='left' data={this.props.local_history_summary} title="SL"/>
                     <DailyFiguresCard new_cases={this.props.data[constants.LOCAL_NEW_CASES]}  new_deaths={this.props.data[constants.LOCAL_NEW_DEATHS]} new_recovered='0' last_update={this.props.data[constants.LAST_UPDATE_TIME]}/>
                 </div>
 
@@ -46,7 +48,7 @@ class App extends Component {
 
                 <div className='row p-3 justify-content-between d-flex'>
                     <GlobalFiguresCard total_cases={this.props.data[constants.GLOBAL_TOTAL_CASES]}  total_deaths={this.props.data[constants.GLOBAL_DEATHS]} total_recovered={this.props.data[constants.GLOBAL_RECOVERED]} last_update={this.props.data[constants.LAST_UPDATE_TIME]}/>
-                    <TotalActiveGraph fadeInDirection='right' data={this.props.local_history_summary}/>
+                    <WorldGraph data={this.props.world_active_summary} color='#0275d8'/>
                 </div>
 
                 
@@ -65,6 +67,7 @@ const mapStateToProps =(state)=>{
         new_deaths_history:state.fetch.new_deaths_history,
         new_recoveries_history:state.fetch.new_recoveries_history,
         local_history_summary:state.fetch.local_history_summary,
+        world_active_summary:state.fetch.world_active_summary
     }
 }
 

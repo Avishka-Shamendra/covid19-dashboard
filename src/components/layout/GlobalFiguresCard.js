@@ -14,7 +14,7 @@ const GlobalFiguresCard = (props) => {
                             <FigureContainer title='Total Deaths' value={props.total_deaths.toLocaleString()}  textColorClass='text-danger' iconColor='#d9534f' icon='skull' iconGlow='red'/>
                             <FigureContainer title='Active Cases' value={(props.total_cases-props.total_recovered).toLocaleString()}  textColorClass='text-warning' iconColor='#f0ad4e' icon='alarm'iconGlow='yellow'/>
                         </div>
-                        <p className="card-text text-muted text-center mt-2">Last Update at {props.last_update} </p>
+                        <p className="card-text text-muted text-center mt-2">Updated on  {props.last_update} </p>
                     </div>
                 </div>
                 </Zoom>

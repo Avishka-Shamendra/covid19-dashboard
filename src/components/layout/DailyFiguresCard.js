@@ -14,7 +14,7 @@ const DailyFiguresCard = (props) => {
                             <FigureContainer title='New Deaths' value={props.new_deaths.toLocaleString()} textColorClass='text-danger' iconColor='#d9534f' icon='skull' iconGlow='red'/>
                             <FigureContainer title='New Recoveries' value={props.new_recovered.toLocaleString()} textColorClass='text-success' iconColor='#5cb85c' icon='heart'iconGlow='green'/>
                         </div>
-                        <p className="card-text text-muted text-center mt-2">Last Update at {props.last_update}</p>
+                        <p className="card-text text-muted text-center mt-2">Updated on {props.last_update}</p>
                     </div>
                 </div>
                 </Zoom>

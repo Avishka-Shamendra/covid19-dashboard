@@ -1,5 +1,5 @@
-import { setFetchingFlag, unsetFetchingFlag } from "./loadingAction";
 import * as constants from '../constants';
+import { setFetchingFlag, unsetFetchingFlag } from './loadingAction';
 const { default: axios } = require("axios");
 
 const fetchHistoricalDataAction= () => {
@@ -8,6 +8,7 @@ const fetchHistoricalDataAction= () => {
         axios.get(constants.HISTORICAL_DATA_URL)
       .then(
             function(response){
+                
                 const dataList = response.data.data;
                 dataList.reverse()
                 var total_cases=0;
@@ -34,6 +35,7 @@ const fetchHistoricalDataAction= () => {
                 });
                 dispatch({type: constants.ACTION_TYPE_FETCH_HISTORICAL_DATA,new_cases_history,new_deaths_history,new_recoveries_history,local_history_summary})
                 dispatch(unsetFetchingFlag())
+                
             }
         ).catch(
             function(response) {

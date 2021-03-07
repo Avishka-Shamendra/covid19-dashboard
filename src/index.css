@@ -56,3 +56,12 @@ code {
   .glow-yellow {
     animation: glowingYellow 3000ms infinite;
   }
+
+  @media (max-width: 576px) { 
+    #flag-1{
+     display: none;
+   }
+   #flag-2{
+    display: none;
+   }
+}
