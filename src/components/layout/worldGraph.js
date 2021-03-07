@@ -15,7 +15,7 @@ const WorldGraph = (props) => {
             <Zoom delay={500} triggerOnce> 
                 <div className='card shadow'>
                     <div className="card-body">
-                        <h5 className="card-title text-center">Countires With Most Active Cases</h5>
+                        <h5 className="card-title text-center">Countries with Most Active Cases</h5>
                         <Chart
                             width='100%'
                             height={'539px'}
