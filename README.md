@@ -2,7 +2,7 @@
 
 This a COVID-19 Situational Analysis Dashboard for Sri Lanka developed using ReactJs.You can visit the dashboard from [here](http://covid-19-dashboard-sl.herokuapp.com/).
 
-The data was used collected using the following APIs 
+To obtain data following APIs were used 
 - [Covid-19 API](https://hpb.health.gov.lk/en/api-documentation) of the Health Promotion Bureau of Sri Lanka
 - [Novel Covid API](https://documenter.getpostman.com/view/8854915/SzS7R6uu?version=latest)
 
