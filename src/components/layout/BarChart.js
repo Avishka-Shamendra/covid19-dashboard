@@ -3,6 +3,10 @@ import { Zoom } from 'react-awesome-reveal';
 import Chart from 'react-google-charts';
 
 const BarChart = (props) => {
+    const dataSet = props.data.map(element => {
+        return [element.date,element.count]
+    });
+    const slicedDataSet = dataSet.sort().slice(-30,)
     return (
             <div className='col-lg-4 col-md-12'>
                 <Zoom triggerOnce delay={400}>
@@ -16,14 +20,7 @@ const BarChart = (props) => {
                             loader={<div className='center text-muted text-center mt-5'>Loading....</div>}
                             data={[
                                 [`${props.xAxis}`, `${props.yAxis}`],
-                                ['Nov 11', 1000],
-                                ['Nov 12', 1170],
-                                ['Nov 13', 660],
-                                ['Nov 14', 1030],
-                                ['Nov 11', 1000],
-                                ['Nov 12', 1170],
-                                ['Nov 13', 660],
-                                ['Nov 14', 1030],
+                                ...slicedDataSet
                             ]}
                             options={{
                                 colors:[`${props.color}`],

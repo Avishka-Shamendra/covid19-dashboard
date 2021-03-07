@@ -8,7 +8,7 @@ const TotalActiveGraph = (props) => {
             <Zoom delay={500} triggerOnce> 
                 <div className='card shadow'>
                     <div className="card-body">
-                        <h5 className="card-title text-center">Total vs Active Cases (SL)</h5>
+                        <h5 className="card-title text-center">Total vs Active Cases ({props.title})</h5>
                         <Chart
                         width='100%'
                         height={'539px'}
@@ -16,22 +16,7 @@ const TotalActiveGraph = (props) => {
                         loader={<div className='center text-muted text-center mt-5'>Loading....</div>}
                         data={[
                             ['Date','Total Cases', 'Active Cases'],
-                            ['10/11/20', 0, 0],
-                            ['11/11/20', 10, 5],
-                            [2, 23, 15],
-                            [3, 17, 9],
-                            [4, 18, 10],
-                            [5, 9, 5],
-                            [6, 11, 3],
-                            [7, 27, 19],
-                            [8, 3, 16],
-                            [9, 10, 5],
-                            [10, 23, 15],
-                            [11, 17, 9],
-                            [12, 18, 10],
-                            [13, 9, 5],
-                            [14, 11, 3],
-                            [15, 27, 19],
+                            ...props.data.sort(),
                         ]}
                         options={{
                             colors:['#0275d8','#f0ad4e'],
